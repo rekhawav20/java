@@ -1,0 +1,9 @@
+Set<String> windowHandles = driver.getWindowHandles();
+ for (String windowHandle : windowHandles) {
+  driver.switchTo().window(windowHandle);
+  if (title.equals(driver.getTitle())) {
+   return driver;
+  }
+ }
+ throw new NoSuchWindowException("Window with title not found: " + title);
+}
